@@ -24,8 +24,27 @@ public class Sponge {
   }
 
   public static String spongeCase(String sentence) {
-    return null;
+    String[] wordArray = sentence.split(" ");
+
+    for(String letters : wordArray){
+
+    }
+
+    
+    return sentence;
   }
+
+  private static String spongeCasesingle(String word){
+    char[] characters = word.toCharArray();
+
+    String result = "";
+    
+    for(int i = 0; i <= characters.length; i+=2){
+      characters[i] = characters.toLowerCase(); 
+      result += characters;
+      }
+      return result;
+    }
 
 
   // Method to help with testing, you do not need to read this.
