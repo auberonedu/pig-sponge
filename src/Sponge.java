@@ -23,9 +23,47 @@ public class Sponge {
     assertEqual(5, spongeCase("e"), "e");
   }
 
+  //stored and ran the sentence and words through
   public static String spongeCase(String sentence) {
-    return null;
+     //initialize 
+    String[] word = sentence.split(" ");
+    String result = "";
+
+    //for loop to store words
+    for (String wordSentence : word) {
+      result += singleWord(wordSentence);
+      result += " ";
+    }
+
+    result = result.substring(0, result.length() - 1);
+    
+    return result;
   }
+
+  //Helper method 
+  //goes through each letter and determining/switching it to uppercase vs lowercase
+  private static String singleWord(String word) {
+    String spongeCase = "";
+    boolean lower = true;
+
+    for (char letter : word.toCharArray()) {
+      if (lower) {
+          spongeCase += Character.toLowerCase(letter); 
+      } else {
+        spongeCase += Character.toUpperCase(letter);
+      } 
+      lower = !lower;
+    }
+    return spongeCase;
+  }
+
+
+
+
+
+
+
+
 
   /*
    * ***NOTES TO INTERVIEWER***
