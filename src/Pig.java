@@ -26,9 +26,26 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        String[] words = sentence.split(" ");
+        String result = "";
+        for (String word : words){
+            result += pigLatinHelper(word) + " ";
+        }
+        result = result.substring(0, result.length() -1);
+        return result;
     }
 
+    private static String pigLatinHelper(String word){
+        String result = "";
+        String start = "";
+        if (word.startsWith("a") || word.startsWith("e") || word.startsWith("i")
+        || word.startsWith("o") || word.startsWith("u")){
+            return word;
+        }
+        start = word.substring(0,1);
+        result = word.substring(1, word.length()) + start + "ay";
+        return result;
+    }
 
 
 
