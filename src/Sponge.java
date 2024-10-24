@@ -21,29 +21,36 @@ public class Sponge {
     assertEqual(3, spongeCase("WHAT is UP my dude"), "wHaT iS uP mY dUdE");
     assertEqual(4, spongeCase("E"), "e");
     assertEqual(5, spongeCase("e"), "e");
+
+    // System.out.println(spongeCaseSingle("spongebob"));
+    // System.out.println(spongeCase("WHAT is UP my dude"));
   }
 
   public static String spongeCase(String sentence) {
     String[] wordArray = sentence.split(" ");
 
-    for(String letters : wordArray){
+    String spongeSentence = "";
 
+    for(String words : wordArray){
+      spongeSentence += spongeCaseSingle(words);
+      spongeSentence += " ";
     }
 
-    
-    return sentence;
+    spongeSentence = spongeSentence.substring(0, spongeSentence.length()-1);
+
+    return spongeSentence;
   }
 
-  private static String spongeCasesingle(String word){
-    char[] characters = word.toCharArray();
+  private static String spongeCaseSingle(String word){
 
-    String result = "";
+    String wordUpperCase = word.toUpperCase();
+    char[] characters = wordUpperCase.toCharArray();
     
-    for(int i = 0; i <= characters.length; i+=2){
-      characters[i] = characters.toLowerCase(); 
-      result += characters;
+    for(int i = 0; i < characters.length; i+=2){
+      characters[i] = Character.toLowerCase(characters[i]); 
+      
       }
-      return result;
+      return new String(characters);
     }
 
 
