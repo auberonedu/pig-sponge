@@ -26,11 +26,32 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        String[] pigLatinArray = sentence.split(" ");
+        String pigLatinSentence = "";
+        
+        for (String word : pigLatinArray) {
+            pigLatinSentence += pigLatinConverter(word);
+            pigLatinSentence += " ";
+        }
+
+        // Remove extra space at the end
+        pigLatinSentence = pigLatinSentence.substring(0, pigLatinSentence.length() - 1);
+        return pigLatinSentence;
     }
 
-
-
+    // private Helper method
+    private static String pigLatinConverter(String word) {
+        if (word.charAt(0) == 'a' || word.charAt(0) == 'e' || word.charAt(0) == 'i' || word.charAt(0) == 'o' || word.charAt(0) == 'u') {
+            return word;
+        } else {
+            // Get the first letter of the word and store it in the variable
+            char singleLetter = word.charAt(0);
+            word = word.substring(1);
+            word += singleLetter;
+        }
+        // Add "ay" at the end
+        return word + "ay";
+    }
 
 
 
