@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+
 public class Pig {
 
     /*
@@ -26,7 +28,25 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        String [] words = sentence.split("\\s");
+        String newSentence = ""; 
+        for (int i = 0; i < words.length; i++) {
+            String currentWord = words[i];
+
+            // checks if it starts with vowels
+            if (currentWord.startsWith("a") || currentWord.startsWith("e") || currentWord.startsWith("i") || currentWord.startsWith("o") || currentWord.startsWith("u")) {
+                newSentence += currentWord;
+            } else { // no vowels means it will be changed to pig latin syntax
+                String letter = currentWord.substring(0, 1);
+                String restOfWord = currentWord.substring(1);
+                newSentence += restOfWord + letter + "ay";
+            }
+            // if it's multiple words in a string this will add a space between words if it is not last word of the array
+            if (i != words.length - 1) {
+                newSentence += " ";
+            }
+        }
+        return newSentence;
     }
 
 
