@@ -26,36 +26,43 @@ public class Sponge {
   }
 
   public static String spongeCase(String sentence) {
-    // break sentence into individual words
+    // Convert sentence string into a String array of words
     sentence = sentence.strip();
     String[] sentences = sentence.split(" ");
 
-    System.out.println(sentence);
+    // Create a sentence builder
+    StringBuilder sentenceBuilder = new StringBuilder();
 
-    // for loop for each word
+    // for each word ... 
     for (String word : sentences) {
-      //  // convert to lowecase
+        // ... convert to lowecase
         word = word.toLowerCase();
-        // System.out.println(word);
-      // // for loop to cycle through length of word
-        for (int i = 1; i < word.length(); i += 2) {
-      // // // every other letter .toUpperCase()
-            String letter = String.valueOf(word.charAt(i));
-            letter = letter.toUpperCase();
-      // // // use Stringbuilder to concat these letters into String
-            StringBuilder wordBuilder = new StringBuilder();
-            wordBuilder.append(letter);
-            String newWord = wordBuilder.toString();
+        
+        // create a wordBuilder in which to store letters
+        StringBuilder wordBuilder = new StringBuilder();
+
+        // for each letter ...
+        for (int i = 0; i < word.length(); i ++) {
+          String letter = String.valueOf(word.charAt(i));
+          // ...if the letter is at an odd index...
+          if (i % 2 != 0) {
+              // ... convert letter to uppercase
+              letter = letter.toUpperCase();
+          }
+          // store letter in wordBuilder
+          wordBuilder.append(letter);
       }
+      String newWord = wordBuilder.toString();
       // Stringbuilding to concat into sentence
-      StringBuilder sentenceBuilder = new StringBuilder();
-      sentenceBuilder.append(newWord);
+
+      sentenceBuilder.append(newWord + " ");
       // return String sentence
     }
     // convert sentence Builder to String
-    String spongedSentence = sentenceBuilder.toString();
+    String newSentence = sentenceBuilder.toString();
+    newSentence = newSentence.substring(0,newSentence.length() - 1);
 
-    return spongedSentence;
+    return newSentence;
   }
 
   
