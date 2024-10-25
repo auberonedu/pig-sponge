@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Pig {
 
     /*
@@ -25,8 +28,22 @@ public class Pig {
     }
 
     // Implement your solution here!
-    public static String pigLatin(String sentence) {
-        return null;
+    public static String pigLatin(String sentence) { 
+        Scanner scan = new Scanner(sentence);  
+        String complete = "";  
+
+        while (scan.hasNext()) {  
+            String current = scan.next();  
+            if (!current.toLowerCase().matches("^[aeiou].*")) { 
+                String firstChar = current.substring(0, 1);  
+                String restOfWord = current.substring(1);  
+                current = restOfWord + firstChar + "ay";  
+            }
+
+            complete += current + " ";  
+        }
+
+        return complete;
     }
 
 
