@@ -24,9 +24,30 @@ public class Sponge {
   }
 
   public static String spongeCase(String sentence) {
-    return null;
+
+    String [] words = sentence.toLowerCase().split(" ");
+    String spongeCaseString = "";
+    
+    for (String word : words) {
+      spongeCaseString += spongeCaseConverter(word) + " ";
+    }
+
+    return spongeCaseString.substring(0, spongeCaseString.length() - 1);
   }
 
+  public static String spongeCaseConverter(String word) {
+    String pieceWord = "";
+
+    for (int i = 0; i < word.length(); i++) {
+      if (i % 2 != 0) {
+        pieceWord += word.toUpperCase().charAt(i);
+      } else {
+        pieceWord += word.toLowerCase().charAt(i);
+      }
+    }
+    return pieceWord;
+  }
+  
   /*
    * ***NOTES TO INTERVIEWER***
    *
