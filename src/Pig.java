@@ -24,10 +24,56 @@ public class Pig {
         assertEqual(5, pigLatin("e"), "e");
     }
 
+
+    /*
+ * we are going to create an array
+ * Implement the solution by splitting the setence
+ * next we create a loop for each word
+ * if else statements
+ * use each setence and chop the words
+ * print out result
+ */
+
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
-    }
+       
+        String[] words = sentence.split(" ");
+        
+        String result = "";
+    
+        // Loop through each word in the sentence
+        for (String word : words) {
+        
+          result += pigLatinSingleWord(word);
+          result += " ";
+
+        }
+    
+        // Remove the extra space at the end
+        result = result.substring(0, result.length() - 1);
+
+        return result;
+      }
+
+
+      private static String pigLatinSingleWord(String word) {
+        
+        if (word.charAt(0) == 'a' || word.charAt(0) == 'e' || word.charAt(0) == 'i' || word.charAt(0) == 'o' || word.charAt(0) == 'u') {     
+          
+         return word;   
+        }
+      // If it starts with a consonant, move the first letter to the end and add "ay"
+
+      // Get the first letter
+      char firstLetter = word.charAt(0);
+      // Remove the first letter from the word
+      word = word.substring(1);
+      // Move the old first letter to the end
+      word = word + firstLetter; 
+      // Add "ay" to the end
+      return word + "ay";
+       }
+    
 
 
 
@@ -44,7 +90,7 @@ public class Pig {
         } else {
         System.out.println("Test " + testNumber + " passed!");
         }
-    }
+      }
     }
   
   

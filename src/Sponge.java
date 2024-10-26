@@ -14,6 +14,9 @@ public class Sponge {
    * spongeCase("E")  should return "e"
    * spongeCase("e")  should return "e"
    */
+
+   
+
   public static void main(String[] args) {
     // Test cases
     assertEqual(1, spongeCase("spongebob"), "sPoNgEbOb");
@@ -24,9 +27,45 @@ public class Sponge {
   }
 
   public static String spongeCase(String sentence) {
-    return null;
+    //split that setence into words
+    String[] words = sentence.split(" ");
+    
+    //returns result as an empty string
+    String result = "";
+
+    //looping through each word in that sentence
+    for (String word : words) {
+
+      result += spongeSingleWord(word);
+      result += " ";
+    }
+
+    //removing that extra space
+    result = result.substring(0, result.length() -1);
+    return result;
   }
 
+
+  private static String spongeSingleWord(String word){
+    String newWord ="";
+    
+    boolean lower = true;
+
+    // Loop through each letter in the word
+    for (char letter : word.toCharArray()) {
+      if (lower) {
+        // Add the lowercase version of the letter
+        newWord += Character.toLowerCase(letter);
+      } else {
+        // Add the uppercase version of the letter
+        newWord += Character.toUpperCase(letter);
+      }
+      // Flip the toggle
+      lower = !lower;
+    }
+
+    return newWord;
+  }
   /*
    * ***NOTES TO INTERVIEWER***
    *
@@ -76,6 +115,8 @@ public class Sponge {
    * help you as the interviewer as you are beginning, but in your actual project/work code
    * you should not have so many redundant comments.
    */
+
+
 
   // Method to help with testing, you do not need to read this.
   public static void assertEqual(int testNumber, String actual, String expected) {
