@@ -23,8 +23,32 @@ public class Sponge {
     assertEqual(5, spongeCase("e"), "e");
   }
 
+  //
   public static String spongeCase(String sentence) {
-    return null;
+    String[] words = sentence.split(" ");
+    String result = "";
+
+    for (String word : words){
+      result += spongeWord(word);
+      result += " ";
+    }
+
+    result = result.substring(0, result.length()-1);
+    return result;
+  }
+
+  private static String spongeWord(String word){
+    String word2 = "";
+    boolean lower = true;
+    for(char letter : word.toCharArray()){
+      if(lower){
+        word2 += Character.toLowerCase(letter);
+      } else {
+        word2 += Character.toUpperCase(letter);
+      }
+      lower = !lower;
+    }
+    return word2;
   }
 
   /*
