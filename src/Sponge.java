@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sponge {
 
   /*
@@ -24,7 +27,39 @@ public class Sponge {
   }
 
   public static String spongeCase(String sentence) {
-    return null;
+
+    String[] changedLetters = sentence.split(" ");
+
+    String changedWords = "";
+
+    for(String word : changedLetters) {
+      changedWords += helperMethod(word);
+      changedWords += " ";
+    }
+      
+    changedWords = changedWords.substring(0, changedWords.length() - 1);
+
+    return changedWords;
+  }
+
+  private static String helperMethod(String word) {
+
+    String changedWord = "";
+
+    boolean flipFlop = true;
+
+    for (char letter : word.toCharArray()) {
+      if (flipFlop) {
+        changedWord += Character.toLowerCase(letter);
+      }
+      else {
+        changedWord += Character.toUpperCase(letter);
+      }
+
+      flipFlop = !flipFlop;
+    }
+
+    return changedWord;
   }
 
   /*
