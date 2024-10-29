@@ -26,15 +26,45 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        // This splits the sentence in to words
+        String[] words = sentence.split(" ");
+        // Stores the pigLatin words
+        String result = "";
+    
+        // Iterates over each word in the words array
+        for (String word : words) {
+          // Calls the method to convert current word to pigLatin
+          result += pigLatinSingleWord(word);
+          // Result as string with a space to separate words
+          result += " ";
+        }
+    
+        // This removes the space at the end of the result string
+        result = result.substring(0, result.length() - 1);
+        return result;
+      }
+
+    // I got helped here form the interviewer for declaring a private static method.
+    private static String pigLatinSingleWord(String word) {
+        // Used boolean to check if vowel is found in word
+        boolean isVowel = false;
+        // Initialize an integer to iterate through characters
+        int i = 0;
+        // Chose a for-loop to iterate each character of the word
+        for(i = 0; i < word.length(); i++) {
+            // Checks if character found in string "aeiou"
+            if("aeiou".indexOf(word.charAt(i)) != -1) {
+                isVowel = true;
+                break;
+            }
+        }
+        // Ternary condition
+        // if isVowel is true, it evaluates to word
+        // if false, it evaluates after the colon
+        // Substring method helps with separating word to the i(first vowel's index)
+        // The substrings are then concatenated with String "ay"
+        return isVowel ? word : word.substring(i) + word.subSequence(0, i) + "ay";
     }
-
-
-
-
-
-
-
 
 
     // Method to help with testing, you do not need to read this.
