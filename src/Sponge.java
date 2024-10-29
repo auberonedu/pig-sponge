@@ -24,58 +24,41 @@ public class Sponge {
   }
 
   public static String spongeCase(String sentence) {
-    return null;
+    /*
+     * Accept a string in a form of a word or sentence
+     * Pass in the string in a for loop and go over every single character
+     * Start with character at index 0 and leave it default
+     * Go to the next character and capitalize it 
+     * Repeat until the program creates a desired output
+     */
+    String output = "";
+    char c = 0;
+    boolean capital = true;
+    
+    for (int i = 0; i < sentence.length(); i++) {
+      c = sentence.charAt(i);
+      if (c == ' ') {
+        capital = true;
+      } else {
+        capital = !capital;
+      }
+      
+      if (!capital) {
+        c = Character.toLowerCase(c);
+      } else if (capital) {
+        c = Character.toUpperCase(c);
+      } else {
+        output += sentence.charAt(i);
+      }
+      
+      output += c;
+    }
+
+    System.out.println(output);
+    return output;
   }
 
-  /*
-   * ***NOTES TO INTERVIEWER***
-   *
-   * ---------Answers to clarifying questions----------
-   * Q: What should I do if the input is empty or null?
-   * A: You do not need to worry about this case. You can assume the input will 
-   *    be a string with at least one letter in it.
-   *
-   * Q: What should I do with punctuation, numbers, etc.?
-   * A: You can assume the input will include only letters and spaces.
-   *
-   * Q: What should I do if there's extra spaces?
-   * A: You can assume there will be exactly one space in between words and no 
-   *    extra spaces at the beginning or end of the string.
-   * --------------------------------------------------
-   *
-   * ---------Hints for struggling candidates----------
-   *
-   *  - If your candidate struggles with an initial algorithm, encourage them 
-   *    to walk through an example and describe how they would do it using only 
-   *    pen and paper.
-   *
-   *  - If they're having trouble determining how to handle multiple words, 
-   *    encourage them to first write code to solve the case where there's only 
-   *    a single word in the string.
-   * 
-   *  - If they're having trouble determining how to loop over every character in a String,
-   *    encourage them to look up how to do that online.
-   *
-   *  - If they're having trouble determining how to convert a single character to upper 
-   *    or lower case, encourage them to look up how to do that online. Note that
-   *    it's different to convert a String to upper case vs a single character.
-   *
-   *  - If your candidate is struggling with test case #3, remind them that the 
-   *    question states that every word starts with a lowercase letter.
-   * 
-   *  - If it looks like test cases should be passing but they aren't, double check 
-   *    whether there is an extra space at the end of their output.
-   * -------------------------------------------------
-   *
-   * Extra notes:
-   * There are more ways to do this! Using a StringBuilder would make it more efficient when 
-   * working with large strings. Learn more about StringBuilder here:
-   *   https://www.geeksforgeeks.org/stringbuilder-class-in-java-with-examples/
-   * 
-   * There are a lot more comments on this guide than are normally needed. This is just to
-   * help you as the interviewer as you are beginning, but in your actual project/work code
-   * you should not have so many redundant comments.
-   */
+
 
   // Method to help with testing, you do not need to read this.
   public static void assertEqual(int testNumber, String actual, String expected) {
