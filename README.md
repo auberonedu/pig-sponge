@@ -1,5 +1,7 @@
 # READ THIS README BEFORE OPENING FILES
 
+Juno will be doing the Pig.java
+
 You will be working with a partner to practice technical interviews. One person will present (be the interviewer) for Sponge. One person will present (be the interviewer) for Pig.
 
 
