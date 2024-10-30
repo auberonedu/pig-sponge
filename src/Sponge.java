@@ -1,18 +1,21 @@
+import java.util.ArrayList;
+
 public class Sponge {
 
   /*
-   * Create a method that takes a string consisting of one or more words 
-   * separated by spaces. It should return a new string converted to "sponge 
-   * case," where each word starts with a lowercase letter, and then alternates 
+   * Create a method that takes a string consisting of one or more words
+   * separated by spaces. It should return a new string converted to "sponge
+   * case," where each word starts with a lowercase letter, and then alternates
    * between upper and lower case for each following letter in the word.
    *
    * Examples:
    *
-   * spongeCase("spongebob")  should return "sPoNgEbOb"
-   * spongeCase("Who are YOU calling A Pinhead")  should return "wHo aRe yOu cAlLiNg a pInHeAd"
-   * spongeCase("WHAT is UP my dude")  should return "wHaT iS uP mY dUdE"
-   * spongeCase("E")  should return "e"
-   * spongeCase("e")  should return "e"
+   * spongeCase("spongebob") should return "sPoNgEbOb"
+   * spongeCase("Who are YOU calling A Pinhead") should return
+   * "wHo aRe yOu cAlLiNg a pInHeAd"
+   * spongeCase("WHAT is UP my dude") should return "wHaT iS uP mY dUdE"
+   * spongeCase("E") should return "e"
+   * spongeCase("e") should return "e"
    */
   public static void main(String[] args) {
     // Test cases
@@ -24,6 +27,16 @@ public class Sponge {
   }
 
   public static String spongeCase(String sentence) {
+    ArrayList<Character> output = new ArrayList<>();
+    for (int i = 0; i < sentence.length(); i++) {
+      char letter = sentence.charAt(i);
+      letter = Character.toLowerCase(letter);
+      output.add(letter);
+      System.out.println(output);
+    }
+    // Interact with the list and target every other index to capitolize every other
+    // letter in the given String.
+
     return null;
   }
 
@@ -32,48 +45,53 @@ public class Sponge {
    *
    * ---------Answers to clarifying questions----------
    * Q: What should I do if the input is empty or null?
-   * A: You do not need to worry about this case. You can assume the input will 
-   *    be a string with at least one letter in it.
+   * A: You do not need to worry about this case. You can assume the input will
+   * be a string with at least one letter in it.
    *
    * Q: What should I do with punctuation, numbers, etc.?
    * A: You can assume the input will include only letters and spaces.
    *
    * Q: What should I do if there's extra spaces?
-   * A: You can assume there will be exactly one space in between words and no 
-   *    extra spaces at the beginning or end of the string.
+   * A: You can assume there will be exactly one space in between words and no
+   * extra spaces at the beginning or end of the string.
    * --------------------------------------------------
    *
    * ---------Hints for struggling candidates----------
    *
-   *  - If your candidate struggles with an initial algorithm, encourage them 
-   *    to walk through an example and describe how they would do it using only 
-   *    pen and paper.
+   * - If your candidate struggles with an initial algorithm, encourage them
+   * to walk through an example and describe how they would do it using only
+   * pen and paper.
    *
-   *  - If they're having trouble determining how to handle multiple words, 
-   *    encourage them to first write code to solve the case where there's only 
-   *    a single word in the string.
+   * - If they're having trouble determining how to handle multiple words,
+   * encourage them to first write code to solve the case where there's only
+   * a single word in the string.
    * 
-   *  - If they're having trouble determining how to loop over every character in a String,
-   *    encourage them to look up how to do that online.
+   * - If they're having trouble determining how to loop over every character in a
+   * String,
+   * encourage them to look up how to do that online.
    *
-   *  - If they're having trouble determining how to convert a single character to upper 
-   *    or lower case, encourage them to look up how to do that online. Note that
-   *    it's different to convert a String to upper case vs a single character.
+   * - If they're having trouble determining how to convert a single character to
+   * upper
+   * or lower case, encourage them to look up how to do that online. Note that
+   * it's different to convert a String to upper case vs a single character.
    *
-   *  - If your candidate is struggling with test case #3, remind them that the 
-   *    question states that every word starts with a lowercase letter.
+   * - If your candidate is struggling with test case #3, remind them that the
+   * question states that every word starts with a lowercase letter.
    * 
-   *  - If it looks like test cases should be passing but they aren't, double check 
-   *    whether there is an extra space at the end of their output.
+   * - If it looks like test cases should be passing but they aren't, double check
+   * whether there is an extra space at the end of their output.
    * -------------------------------------------------
    *
    * Extra notes:
-   * There are more ways to do this! Using a StringBuilder would make it more efficient when 
+   * There are more ways to do this! Using a StringBuilder would make it more
+   * efficient when
    * working with large strings. Learn more about StringBuilder here:
-   *   https://www.geeksforgeeks.org/stringbuilder-class-in-java-with-examples/
+   * https://www.geeksforgeeks.org/stringbuilder-class-in-java-with-examples/
    * 
-   * There are a lot more comments on this guide than are normally needed. This is just to
-   * help you as the interviewer as you are beginning, but in your actual project/work code
+   * There are a lot more comments on this guide than are normally needed. This is
+   * just to
+   * help you as the interviewer as you are beginning, but in your actual
+   * project/work code
    * you should not have so many redundant comments.
    */
 
