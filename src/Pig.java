@@ -1,3 +1,4 @@
+import java.util.StringBuilder;
 public class Pig {
 
     /*
@@ -26,7 +27,25 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        StringBuilder retString = new StringBuilder();
+        for(String word : sentence) {
+        switch(sentence.charAt(0)) {
+            case a:
+            case e:
+            case i:
+            case o:
+            case u:
+                retString.append(word);
+                break;
+            default:
+                String beginningChar = word.substring(0,1);
+                word = word.substring(1);
+                word = word + beginningChar + "ay";
+                retString.append(word);
+                break;
+        }
+        }
+        return retString.toString();
     }
 
 
